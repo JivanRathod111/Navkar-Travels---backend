@@ -326,7 +326,7 @@ body {
   background-color: #A7BEAE;
   height: auto; /* Ensure the container takes up at least the full height of the viewport */
   width: 100%;
-  padding-top: 40px;
+  padding: 40px;
 }
 .search-bus-container {
   position: relative;

@@ -15,6 +15,7 @@ function SearchBus() {
   const [trips, setTrips] = useState([]);
   const [error, setError] = useState("");
   const [showBusDetails, setShowBusDetails] = useState(false);
+  const [showOffers, setShowOffers] = useState(true);
 
   const handleSearch = async () => {
     if (!startPoint || !endPoint || !date) {
@@ -124,7 +125,12 @@ function SearchBus() {
           <AvailableBus trips={trips} onBack={() => setShowBusDetails(false)} />
         )}
       </Container>
-      <Offers/>
+     
+        {!showBusDetails ? (
+<div style={{margin:"80px auto"}}>
+        <Offers />
+      </div>
+): null}
     </div>
   );
 }

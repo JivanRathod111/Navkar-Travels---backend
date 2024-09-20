@@ -5,18 +5,11 @@ import Home from "./components/Home";
 import SearchBus from "./SearchBus";
 import MyBookings from "./MyBookings";
 import Header from "./components/Header";
-import Auth from "./Auth";
 import SignUp from "./SignUp";
 import Login from "./Login";
-import AdminPanel from "./AdminPanel/AdminPanel";
-import AdminHeader from "./AdminPanel/AdminHeader";
-import Bookings from "./AdminPanel/Bookings";
-import Trips from "./AdminPanel/Trips";
-import Seats from "./AdminPanel/Seats";
-import BusPanel from "./AdminPanel/BusPanel";
 import About from "./About";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Offers from "./components/Offers";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
 function App() {
   const bookNowRef = useRef(null);
@@ -31,37 +24,34 @@ function App() {
 
   return (
     <div>
-      {/* <AdminPanel/> */} 
- 
-      {/* <BusPanel/> */}
-  
       {isSignUp ? (
         <SignUp setIsSignUp={setIsSignUp} />
       ) : !hasAccess ? (
         <Login setHasAccess={setHasAccess} setIsSignUp={setIsSignUp} />
       ) : (
-        <>
-         <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path="/home" element={<Home scrollToBookNow={scrollToBookNow} />} />
-        <Route path="/about" element={<About/>} />
-        <Route path="/bookings" element={<MyBookings />} />
-        {/* <Route path="/search" element={<SearchBus />} /> */}
-      </Routes>
-    </BrowserRouter>
+        <BrowserRouter>
+          <Header />
 
-          {/* <Home
-            scrollToBookNow={scrollToBookNow}
-            isLoggedIn={hasAccess}
-            setHasAccess={setHasAccess}
-          /> */}
-          <div ref={bookNowRef}>
-            {/* <SearchBus /> */}
-            <Offers />
-          </div>
+          <Routes>
+            {/* Default route to Home */}
+            <Route path="/" element={<Navigate to="/home" />} />
+
+            {/* Define Home route */}
+            <Route path="/home" element={<Home scrollToBookNow={scrollToBookNow} />} />
+
+            <Route path="/about" element={<About />} />
+            <Route path="/bookings" element={<MyBookings />} />
+            <Route path="/search" element={<SearchBus />} />
+            <Route path="/offer" element={<Offers />} />
+            {/* Add more routes as needed */}
+          </Routes>
+
           <Footer />
-        </>
+
+          <div ref={bookNowRef}>
+            {/* Additional components or content can be placed here */}
+          </div>
+        </BrowserRouter>
       )}
     </div>
   );

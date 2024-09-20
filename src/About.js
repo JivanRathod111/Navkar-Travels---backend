@@ -30,9 +30,9 @@ const TeamMember = styled(Paper)(({ theme }) => ({
 
 const About = () => {
   return (
-    <div style={{height:"auto"}}>
+    <div style={{height:"auto" , padding:"50px"}}>
       <Container >
-      <Header>
+      <Header sx={{borderRadius:"8px"}}>
         <Typography variant="h2">About Us</Typography>
         <Typography variant="h6">Providing Quality Bus Services Since 2020</Typography>
       </Header>
@@ -58,7 +58,7 @@ const About = () => {
         </Container>
       </Section>
 
-      <Section bgcolor="#f4f4f4">
+      <Section bgcolor="#f4f4f4" borderRadius="8px">
         <Container>
           <Typography variant="h4" gutterBottom>
             Meet Our Team

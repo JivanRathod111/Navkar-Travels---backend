@@ -16,6 +16,8 @@ const Login = ({ setHasAccess, setIsSignUp }) => { // Destructure setIsSignUp di
         },
       });
       if (response.status === 200) {
+        window.location.href = "/";
+
         sessionStorage.setItem('isLoggedIn', "true");
         sessionStorage.setItem('userId', response.data.id); 
 

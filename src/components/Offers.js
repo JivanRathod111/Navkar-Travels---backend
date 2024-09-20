@@ -25,7 +25,7 @@ const offers = [
 
 const Offers = () => {
   return (
-    <Container sx={{marginTop:"-30px",padding:"10px",background:"#ccc",borderRadius:"8px", marginBottom:"10px"}}>
+    <div  style={{ padding:"10px 60px",background:"white",margin:"10px 78px", borderRadius:"8px"}}>
       <Typography variant="h4" align="center" gutterBottom sx={{color : "black", margin:"30px"}}>
         Special Offers
       </Typography>
@@ -68,7 +68,7 @@ const Offers = () => {
           </Paper>
         ))}
       </Carousel>
-    </Container>
+    </div>
   );
 };
 

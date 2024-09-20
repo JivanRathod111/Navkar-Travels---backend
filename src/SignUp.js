@@ -11,7 +11,8 @@ const SignUp = ({ setIsSignUp }) => {
     try {
       sessionStorage.setItem('isLoggedIn', false);
       const response = await axios.post('http://localhost:8081/user/', values);
-      if (response.status === 200) {
+      if (response.status === 201) {
+        alert('Sign-Up successful');
         console.log('Sign-Up successful:', response.data);
         resetForm(); // Clear the form fields
       }
@@ -195,5 +196,4 @@ const SignUp = ({ setIsSignUp }) => {
     </Box>
   );
 };
-
 export default SignUp;
